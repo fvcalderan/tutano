@@ -48,7 +48,7 @@ in the code are typically required, e.g.: Defining `M_PI` yourself.
 
 ## Launch the game from the terminal
 
-It's important that Tutano is launched from within the terminal, especially if you'll use the map editor. 
+It's important that Tutano is launched from within the terminal, especially if plan to use the map editor. 
 In GNU/Linux or MacOS, in Tutano's root folder, type `./Tutano`.
 In Windows, using the CMD, just type `Tutano` in Tutano's root folder.
 
