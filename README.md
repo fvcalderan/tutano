@@ -64,15 +64,15 @@ Game Controls                       | Editor Controls
 Arrows     | Turn and move          | Arrows     | Move cursor
 A + Arrows | Turn without moving    | A + Arrows | Move cursor faster
 Space      | Fire                   | D          | Eye dropper
-D          | Flash (kill all mobs)  | 1          | Cicle floors
-ESC        | Go to main menu        | 2          | Cicle walls
-                                    | 3          | Cicle spawns/exit/tele
-Map and point system informations   | 4          | Cicle item pillars
-====================================| 5          | Cicle keys
-                                    | 6          | Cicle doors
-Each map must have at most 3 monster| 7          | Cicle water/water wall
-spawners, 3 doors, 3 keys, 3 items. | 8          | Cicle water directions
-Also, a player spawner and exit are | 9          | Cicle darkness levels
+D          | Flash (kill all mobs)  | 1          | Cycle floors
+ESC        | Go to main menu        | 2          | Cycle walls
+                                    | 3          | Cycle spawns/exit/tele
+Map and point system informations   | 4          | Cycle item pillars
+====================================| 5          | Cycle keys
+                                    | 6          | Cycle doors
+Each map must have at most 3 monster| 7          | Cycle water/water wall
+spawners, 3 doors, 3 keys, 3 items. | 8          | Cycle water directions
+Also, a player spawner and exit are | 9          | Cycle darkness levels
 needed to save the map.             | 0          | Eraser (empty tile)
                                     | Space      | Place block
 During the game, each item is worth | F1         | Save map (see console)
