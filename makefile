@@ -23,6 +23,7 @@ OBJFILES 	= models/m_cup.o models/m_key.o models/m_map.o models/m_door.o models/
 			  includes/controls.o includes/numtoimg.o includes/texloader.o includes/primitives.o \
 			  includes/lighting.o includes/customtypes.o includes/overlay.o \
 			  includes/mapfunctions.o includes/mainmenu.o includes/queue.o includes/BFS.o \
+			  includes/FPS_lock.o \
 			  Tutano.o
 TARGET = Tutano
 
