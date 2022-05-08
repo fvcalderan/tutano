@@ -1,17 +1,17 @@
 /* This is Tutano's main file.
  * Copyright (C) 2020 Felipe V. Calderan <fvcalderan@gmail.com>
  * Copyright (C) 2020 Natália V. Calderan <nvcalderan@gmail.com>
- * 
+ *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.*/
 
@@ -117,7 +117,7 @@ void credits_and_controls()
 		   "=========================================================================\n"
 		   "Game Controls                       | Editor Controls\n"
 		   "=========================================================================\n"
-		   "                                    |\n" 
+		   "                                    |\n"
 		   "Arrows     | Turn and move          | Arrows     | Move cursor\n"
 		   "A + Arrows | Turn without moving    | A + Arrows | Move cursor faster\n"
 		   "Space      | Fire                   | D          | Eye dropper\n"
@@ -447,7 +447,7 @@ void init_entities(int mode)
 	mummy.attack_reach = 1.2f;
 }
 
-void init() 
+void init()
 {
 
 	cursor.grid_pos.x = MAPSIZE*2;
@@ -489,7 +489,7 @@ void pre_init()
 
 }
 
-void draw_map() 
+void draw_map()
 {
     int i, j;
     int draw_after_enabled = 0;
@@ -500,7 +500,7 @@ void draw_map()
     glPushMatrix();
         glTranslatef(0, 0.75, 0);
         for (i = 0; i < MAPSIZE; i++)
-        {      
+        {
             for (j = 0; j < MAPSIZE; j++)
             {
                 glTranslatef(1, 0, 0);
@@ -546,11 +546,11 @@ void draw_map()
 		                	else
 		                	{
 		                		obj_water_wall(wt_keyframe_main, 270.0f);
-		                	} 
+		                	}
 		                }
 		                else
 		                {
-                        obj_wall(map_get_wall_skin(map_matrix, i, j)); 
+                        obj_wall(map_get_wall_skin(map_matrix, i, j));
                     	}
                     }
                 }
@@ -636,7 +636,7 @@ void draw_map()
                 obj_transparent_wall(map_get_wall_skin(map_matrix, draw_after[0], draw_after[1]), wt_keyframe_main);
             }
         glPopMatrix();
-        
+
         if (map_walkable(map_matrix, draw_after[2], draw_after[3]+1))
         {
             glPushMatrix();
@@ -647,7 +647,7 @@ void draw_map()
             glPopMatrix();
         }
         else
-        { 
+        {
             if (draw_after[2] < MAPSIZE && draw_after[3] < MAPSIZE) {
                 if (map_matrix[draw_after[2]][draw_after[3]] >= 42)
                 {
@@ -668,7 +668,7 @@ void draw_map()
                         else
                         {
                             obj_water_wall(wt_keyframe_main, 270.0f);
-                        } 
+                        }
                     glPopMatrix();
                 }
                 else
@@ -678,7 +678,7 @@ void draw_map()
                         obj_wall(map_get_wall_skin(map_matrix, draw_after[2], draw_after[3]));
                     glPopMatrix();
                 }
-            }       
+            }
         }
 
         if (draw_after[4] < MAPSIZE && draw_after[5] < MAPSIZE) {
@@ -710,7 +710,7 @@ void draw_map()
                         else
                         {
                             obj_water_wall(wt_keyframe_main, 270.0f);
-                        } 
+                        }
                     glPopMatrix();
                 }
                 else
@@ -944,7 +944,7 @@ void init_map_editor()
 	ed_teleports_placed = 0;
 	ed_water_settings_placed = 0;
 	ed_place_init_fix = 15;
-	
+
 
 	generate_blank_map(map_matrix);
 }
@@ -1105,7 +1105,7 @@ void fix_rotations()
 }
 
 void fix_positions()
-{    
+{
     int player_can_move_x = 1;
     int player_can_move_z = 1;
     int snake_can_move_x = 1;
@@ -1118,7 +1118,7 @@ void fix_positions()
     // player =====================================================
     if (player.is_alive)
 	{
-	    if (player.abs_pos.z < player.grid_going.y - 0.1 + 1 && 
+	    if (player.abs_pos.z < player.grid_going.y - 0.1 + 1 &&
 	        player.abs_pos.z < player.grid_going.y + 0.1 + 1)
 	    {
 	        player.abs_pos.z += player.move_speed;
@@ -1135,7 +1135,7 @@ void fix_positions()
 	        player_can_move_x = 1;
 	    }
 
-	    if (player.abs_pos.x < player.grid_going.x - 0.1 && 
+	    if (player.abs_pos.x < player.grid_going.x - 0.1 &&
 	        player.abs_pos.x < player.grid_going.x + 0.1)
 	    {
 	        player.abs_pos.x += player.move_speed;
@@ -1158,7 +1158,7 @@ void fix_positions()
 	// snake =====================================================
     if (snake.is_alive)
     {
-    	if (snake.abs_pos.z < snake.grid_going.y - 0.1 + 1 && 
+    	if (snake.abs_pos.z < snake.grid_going.y - 0.1 + 1 &&
         snake.abs_pos.z < snake.grid_going.y + 0.1 + 1)
     {
         snake.abs_pos.z += snake.move_speed;
@@ -1175,7 +1175,7 @@ void fix_positions()
         snake_can_move_x = 1;
     }
 
-    if (snake.abs_pos.x < snake.grid_going.x - 0.1 && 
+    if (snake.abs_pos.x < snake.grid_going.x - 0.1 &&
         snake.abs_pos.x < snake.grid_going.x + 0.1)
     {
         snake.abs_pos.x += snake.move_speed;
@@ -1198,7 +1198,7 @@ void fix_positions()
     // scorpion =====================================================
     if (scorpion.is_alive)
     {
-    	if (scorpion.abs_pos.z < scorpion.grid_going.y - 0.1 + 1 && 
+    	if (scorpion.abs_pos.z < scorpion.grid_going.y - 0.1 + 1 &&
         scorpion.abs_pos.z < scorpion.grid_going.y + 0.1 + 1)
     {
         scorpion.abs_pos.z += scorpion.move_speed;
@@ -1215,7 +1215,7 @@ void fix_positions()
         scorpion_can_move_x = 1;
     }
 
-    if (scorpion.abs_pos.x < scorpion.grid_going.x - 0.1 && 
+    if (scorpion.abs_pos.x < scorpion.grid_going.x - 0.1 &&
         scorpion.abs_pos.x < scorpion.grid_going.x + 0.1)
     {
         scorpion.abs_pos.x += scorpion.move_speed;
@@ -1238,7 +1238,7 @@ void fix_positions()
     // mummy =====================================================
     if (mummy.is_alive)
     {
-    	if (mummy.abs_pos.z < mummy.grid_going.y - 0.1 + 1 && 
+    	if (mummy.abs_pos.z < mummy.grid_going.y - 0.1 + 1 &&
         mummy.abs_pos.z < mummy.grid_going.y + 0.1 + 1)
     {
         mummy.abs_pos.z += mummy.move_speed;
@@ -1255,7 +1255,7 @@ void fix_positions()
         mummy_can_move_x = 1;
     }
 
-    if (mummy.abs_pos.x < mummy.grid_going.x - 0.1 && 
+    if (mummy.abs_pos.x < mummy.grid_going.x - 0.1 &&
         mummy.abs_pos.x < mummy.grid_going.x + 0.1)
     {
         mummy.abs_pos.x += mummy.move_speed;
@@ -1376,7 +1376,7 @@ void fix_animations()
     {
     	mummy.animation = 5;
     }
-    
+
 }
 
 // checks if position on map is avaliable
@@ -1516,14 +1516,14 @@ void map_draw_cursor()
 	glPopMatrix();
 }
 
-void display_function() 
+void display_function()
 {
 	int i;
 
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glMatrixMode(GL_MODELVIEW);
     refresh_camera();
-    glColor4f(1.0f, 1.0f, 1.0f, 0.0); 
+    glColor4f(1.0f, 1.0f, 1.0f, 0.0);
     if (scene_value == 0)
     {
     	load_score(&player_high_score, selected_campaign);
@@ -1537,7 +1537,7 @@ void display_function()
 	    draw_mummy();
 	    for (i = 0; i < 3; i++) draw_item(i);
 	    for (i = 0; i < 3; i++) draw_key(i);
-	    draw_map(); 
+	    draw_map();
 
 	    // draw HUD
 	    draw_overlay(player.abs_pos.z-5, 7, player.abs_pos.x, player.reload, player.flash, player_lives_number,
@@ -1545,12 +1545,12 @@ void display_function()
 
 	    if (player.respawn > 0)
 	    {
-	    	lighting(player.abs_pos.z, player.abs_pos.x, 0.05f, 
+	    	lighting(player.abs_pos.z, player.abs_pos.x, 0.05f,
 	    		     ((float)player.respawn-10)/((float)player.respawn_time-10)-(1.0f-lt_settings));
 	    }
 	    else if (player.flash > 100)
 	    {
-	    	lighting(player.abs_pos.z, player.abs_pos.x, 0.05f, 
+	    	lighting(player.abs_pos.z, player.abs_pos.x, 0.05f,
 	    		     ((float)player.flash-100)/((float)player.flash_time-100) + lt_settings);
 	    }
 	    else if (player.reload > 97)
@@ -1563,7 +1563,7 @@ void display_function()
 	    }
     }
     else
-    {	
+    {
     	map_draw_temp_mobs();
     	map_draw_cursor();
     	draw_map();
@@ -1627,7 +1627,7 @@ void AI()
 			 	{
 			 		goto snake_dont_move;
 			 	}
-			 	
+
 			 	if (snake.movement_array[0].y == snake.grid_pos.y+1) snake.direction = 0;
 			 	if (snake.movement_array[0].y == snake.grid_pos.y-1) snake.direction = 1;
 			 	if (snake.movement_array[0].x == snake.grid_pos.x-1) snake.direction = 2;
@@ -1684,7 +1684,7 @@ void AI()
 			{
 				BFS(scorpion.grid_pos, player.grid_pos, map_matrix);
 		 		scorpion.BFS_size = BFS_get_path_coords(scorpion.grid_pos, player.grid_pos, scorpion.movement_array);
-			 	
+
 			 	if (abs(scorpion.movement_array[0].x - scorpion.grid_pos.x) > 1 ||
 			 		abs(scorpion.movement_array[0].y - scorpion.grid_pos.y) > 1)
 			 	{
@@ -1752,7 +1752,7 @@ void AI()
 			 	{
 			 		goto mummy_dont_move;
 			 	}
-			 	
+
 			 	if (mummy.movement_array[0].y == mummy.grid_pos.y+1) mummy.direction = 0;
 			 	if (mummy.movement_array[0].y == mummy.grid_pos.y-1) mummy.direction = 1;
 			 	if (mummy.movement_array[0].x == mummy.grid_pos.x-1) mummy.direction = 2;
@@ -1947,7 +1947,7 @@ void check_if_player_picked_up_item()
 {
 	for (int i = 0; i < 3; i++)
 	{
-		if (abs(player.grid_pos.x - item_in_position[i].x) + 
+		if (abs(player.grid_pos.x - item_in_position[i].x) +
 			abs(player.grid_pos.y - item_in_position[i].y) <= 1)
 		{
 			player_score += ARTIFACT_POINTS;
@@ -1975,7 +1975,7 @@ void check_if_player_is_by_a_door()
 {
 	for (int i = 0; i < 3; i++)
 	{
-		if (abs(player.grid_pos.x - door_in_position[i].x) + 
+		if (abs(player.grid_pos.x - door_in_position[i].x) +
 			abs(player.grid_pos.y - door_in_position[i].y) <= 1)
 		{
 			// if the player has the correct key, open the door
@@ -2103,7 +2103,7 @@ void time_tick()
 }
 
 void loop_function(int value)
-{	
+{
 	if (scene_value == 0)
 	{
 		if (skey_buffer[GLUT_KEY_UP] && menu_cooldown == 0)
@@ -2157,7 +2157,7 @@ void loop_function(int value)
 			}
 			goto_title_screen();
 	    }
-	    
+
 	    camchange_cooldown = (camchange_cooldown > 0) ? camchange_cooldown - 1 : 0;
 
 	    // player controls =============================================================
@@ -2190,7 +2190,7 @@ void loop_function(int value)
 		                player.can_move = 0;
 		            }
 		            player.direction = 1;
-		            
+
 		        }
 		        else if (skey_buffer[GLUT_KEY_LEFT])
 		        {
@@ -2481,7 +2481,7 @@ void loop_function(int value)
 			{
 				printf("\n\tMap needs at least a start and an exit to be saved!\n\n");
 			}
-			
+
 			ed_block_time = ED_BLOCK_CD;
 		}
 
@@ -2516,10 +2516,10 @@ void loop_function(int value)
 
 	wt_keyframe_main = (wt_keyframe_main < WT_KEYFRAME_MAX) ? wt_keyframe_main + 1 : 0;
     glutPostRedisplay();
-    glutTimerFunc(10,loop_function, 1);
+    glutTimerFunc(15,loop_function, 1);
 }
 
-int main(int argc, char * argv[]) 
+int main(int argc, char * argv[])
 {
 	credits_and_controls();
 	if (argc == 1)
@@ -2531,7 +2531,7 @@ int main(int argc, char * argv[])
 	{
 		sprintf(selected_campaign, "%s", argv[1]);
 		window_mode = 0;
-		
+
 	}
 	else
 	{
@@ -2550,7 +2550,7 @@ int main(int argc, char * argv[])
     {
     	glutFullScreen();
     }
-    
+
     clear_key_buffer();
     glutSpecialFunc(KeyboardSpecial);
     glutSpecialUpFunc(KeyboardUpSpecial);
@@ -2564,8 +2564,8 @@ int main(int argc, char * argv[])
     pre_init();
 
     glutDisplayFunc(display_function);
-    glutTimerFunc(60, loop_function, 1);
-    
+    glutTimerFunc(15, loop_function, 1);
+
     initTexture();
     glutMainLoop();
     return 0;
